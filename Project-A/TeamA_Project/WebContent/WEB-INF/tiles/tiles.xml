@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC   "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+<!--  Main Layout -->
+<definition name="master.layout" template="/WEB-INF/template/master.jsp">
+<put-attribute name="header" value="/WEB-INF/template/header.jsp"/>
+<put-attribute name="body" value=""/>
+<put-attribute name="menu" value="/WEB-INF/template/menu.jsp"/>
+<put-attribute name="footer" value="/WEB-INF/template/footer.jsp"/>
+<put-attribute name="title" value=""/>
+</definition>
+<definition name="index" extends="master.layout">
+<put-attribute name="title" value="Index Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/index.jsp"/>
+</definition>
+
+<definition name="viewquestion" extends="master.layout">
+<put-attribute name="title" value="Index Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/viewquestion.jsp"/>
+</definition>
+
+<!-- User -->
+<definition name="user" extends="master.layout">
+<put-attribute name="title" value="User Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/user/user.jsp"/>
+</definition>
+
+<definition name="upload" extends="master.layout">
+<put-attribute name="title" value="User Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/user/upload.jsp"/>
+</definition>
+
+
+<definition name="askquestion" extends="master.layout">
+<put-attribute name="title" value="User Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/user/askquestion.jsp"/>
+</definition>
+
+
+<!-- Trainer -->
+<definition name="trainer" extends="master.layout">
+<put-attribute name="title" value="Trainer Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/trainer/trainer.jsp"/>
+</definition>
+<definition name="Questions" extends="master.layout">
+<put-attribute name="title" value="Questions Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/trainer/Questions.jsp"/>
+</definition>
+
+<definition name="trainer_sendmails" extends="master.layout">
+<put-attribute name="title" value="Trainer Mail Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/trainer/trainer_sendmails.jsp"/>
+</definition>
+
+<definition name="trainerreview_docs" extends="master.layout">
+<put-attribute name="title" value="Review Docs"/>
+<put-attribute name="body" value="/WEB-INF/pages/trainer/trainerreview_docs.jsp"/>
+</definition>
+
+<!-- End Trainer -->
+
+<definition name="contact" extends="master.layout">
+<put-attribute name="title" value="ContactPage"/>
+<put-attribute name="body" value="/WEB-INF/pages/contact.jsp"/>
+</definition>
+
+<definition name="registration" extends="master.layout">
+<put-attribute name="title" value="Registration Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/registration.jsp"/>
+</definition>
+<definition name="signin" extends="master.layout">
+<put-attribute name="title" value="Sign In Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/signin.jsp"/>
+</definition>
+<definition name="home" extends="master.layout">
+<put-attribute name="title" value="Home Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/home.jsp"/>
+</definition>
+
+<definition name="land" extends="master.layout">
+<put-attribute name="title" value="Landing Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/land.jsp"/>
+</definition>
+
+<!-- Admin Layout -->
+<definition name="admin" template="/WEB-INF/template/admin_layout.jsp">
+<put-attribute name="header" value="/WEB-INF/template/header.jsp"/>
+<put-attribute name="body" value=""/>
+<put-attribute name="menu" value="/WEB-INF/template/menu.jsp"/>
+<put-attribute name="sidebar" value="/WEB-INF/template/sidebar.jsp"/>
+<put-attribute name="footer" value="/WEB-INF/template/footer.jsp"/>
+<put-attribute name="title" value=""/>
+</definition>
+
+<definition name="dashboard" extends="admin">
+<put-attribute name="title" value="Dashboard"/>
+<put-attribute name="body" value="/WEB-INF/pages/dashboard.jsp"/>
+</definition>
+<definition name="reports" extends="admin">
+<put-attribute name="title" value="Reports"/>
+<put-attribute name="body" value="/WEB-INF/pages/reports.jsp"/>
+</definition>
+<definition name="adduser" extends="admin">
+<put-attribute name="title" value="Adduser"/>
+<put-attribute name="body" value="/WEB-INF/pages/adduser.jsp"/>
+</definition>
+<definition name="admin_sendmails" extends="admin">
+<put-attribute name="title" value="Send Maiils"/>
+<put-attribute name="body" value="/WEB-INF/pages/admin_sendmails.jsp"/>
+</definition>
+<definition name="review_docs" extends="admin">
+<put-attribute name="title" value="Review Docs"/>
+<put-attribute name="body" value="/WEB-INF/pages/review_docs.jsp"/>
+</definition>
+<definition name="employee_docs" extends="admin">
+<put-attribute name="title" value="Employee Docs"/>
+<put-attribute name="body" value="/WEB-INF/pages/employee_docs.jsp"/>
+</definition>
+<definition name="EmployeeReport" extends="admin">
+<put-attribute name="title" value="Employee Reports"/>
+<put-attribute name="body" value="/WEB-INF/pages/EmployeeReport.jsp"/>
+</definition>
+<definition name="alluser" extends="admin">
+<put-attribute name="title" value="All Users"/>
+<put-attribute name="body" value="/WEB-INF/pages/alluser.jsp"/>
+</definition>
+<definition name="notice" extends="admin">
+<put-attribute name="title" value="Notice Info"/>
+<put-attribute name="body" value="/WEB-INF/pages/notice.jsp"/>
+</definition>
+
+<!-- Admin Template End -->
+
+
+<definition name="forgotpassword" extends="master.layout">
+<put-attribute name="title" value="ForgotPassword Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/forgotpassword.jsp"/>
+</definition>
+<definition name="confirmation" extends="master.layout">
+<put-attribute name="title" value="Success Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/reg_confirmation.jsp"/>
+</definition>
+<definition name="email_confirmation" extends="master.layout">
+<put-attribute name="title" value="Email Confirmation Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/email_confirmation.jsp"/>
+</definition>
+<definition name="create_new_passwoed" extends="master.layout">
+<put-attribute name="title" value="Create New Password"/>
+<put-attribute name="body" value="/WEB-INF/pages/create_new_password.jsp"/>
+</definition>
+<!-- <definition name="upload" extends="master.layout">
+<put-attribute name="title" value="Upload Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/upload.jsp"/>
+</definition> -->
+
+<definition name="search" extends="master.layout">
+<put-attribute name="title" value="Search Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/search.jsp"/>
+</definition>
+
+<definition name="profile" extends="master.layout">
+<put-attribute name="title" value="Profile Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/profile.jsp"/>
+</definition>
+
+
+<definition name="forum" extends="master.layout">
+<put-attribute name="title" value="Forum Page"/>
+<put-attribute name="body" value="/WEB-INF/pages/forum.jsp"/>
+</definition>
+
+
+
+
+<!-- class="img-responsive center-block -->
+</tiles-definitions>
