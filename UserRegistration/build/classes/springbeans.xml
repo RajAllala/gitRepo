@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+
+	<bean id="User_RegistrationDAO" class="com.project.spring.hibernate.DAOImpl.User_RegistrationDAOImpl">
+		 <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Data source -->
+
+	 <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    	<property name="driverClassName" value="org.postgresql.Driver"/>
+    	<property name="url" value="jdbc:postgresql://192.168.1.2:5432/bellinfodevdb"/>
+    	<property name="username" value="dbuser"/>
+    	<property name="password" value="dbpassword"/>
+    </bean>
+	 
+	 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="datasource" />
+        
+    </bean>
+	 
+</beans>
