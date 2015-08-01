@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:jee="http://www.springframework.org/schema/jee"
+ xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+  xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+ http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+ http://jax-ws.dev.java.net/spring/core http://jax-ws.java.net/spring/core.xsd
+    http://jax-ws.dev.java.net/spring/servlet http://jax-ws.java.net/spring/servlet.xsd">
+
+<context:component-scan base-package="com.allala.spring.jaxws"></context:component-scan>
+
+<wss:binding url="/services/personService">
+	<wss:service>
+		<ws:service bean ="#personEndpoint"/>
+	</wss:service>
+</wss:binding>
+
+
+<!-- Endpoint bean -->
+
+<bean id="personEndpoint" class="com.allala.spring.jaxws.endpoint.PersonServiceEndpoint"/>
+
+
+</beans>

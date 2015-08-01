@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+
+<body ng-controller="mysecondcontroller">
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="index.html"><b><font color="#FFFFFF">Movie Store</font></b>
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <li><a href="index.html">Movies</a></li>
+      <li class="active"><a href="custom.html">Custom</a></li>     </ul>
+      
+     <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Movie Name" ng-model="mymovie">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="addmymovie()">Add a movie</button>
+      </form>
+     
+       
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Sign in</a></li>
+            <li><a href="#">Guest User</a></li>
+            <li><a href="#">Sign up</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="row">
+<div class="container">
+<div class="col-md-3" ng-repeat="movie in movies | orderBy:'Title'">
+	<div class="thumbnail">     
+		<div class="caption">
+		<h4>{{movie.query.count}}</h4>
+        	<h4>{{movie.query.created}}</h4>
+		
+        	<h4>{{movie.Title}}</h4>
+        	<img src={{movie.Poster}} alt="..." style="width:150px;height:150px" >
+        	<h5>Genre: {{movie.Genre}}</h5>
+        	<h5>Director: {{movie.Director}}</h5>
+        	<h5>Rating: {{movie.imdbRating}}</h5>
+    	</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+
+</body>
+<script src="js/jquery.min.js"> </script>
+<script src="js/bootstrap.min.js"> </script>
+<script src="angular.min.js"> </script>
+<script src="myapp.js"> </script>
+</html>

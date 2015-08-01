@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    xmlns:tx="http://www.springframework.org/schema/tx">
+    
+    
+    <bean id="newsDAO" class="com.allala.spring.hibernate.dao.impl.NewsDAOImpl">
+    <property name="sessionFactory" ref="sessionFactory"/>
+    <property name="myCustom" ref="myCustom"/>
+    </bean>
+    
+    <bean id="personDAO" class="com.allala.spring.hibernate.dao.impl.PersonDAOImpl">
+    <property name="hTemplate" ref="hTemplate"/>
+    </bean>
+    
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="org.postgresql.Driver"/>
+    <property name="url" value="jdbc:postgresql://192.168.1.2:5432/bellinfodevdb"/>
+    <property name="username" value="dbuser"/>
+    <property name="password" value="dbpassword"/>
+    </bean>
+    
+    <bean id="hTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+    <constructor-arg ref="sessionFactory"></constructor-arg>
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="datasource"/>
+    <!-- <property name="annotatedClasses"/> -->
+    <property name="packagesToScan">
+  
+    	<list>
+    	    <value>com.allala.hibernate.entities</value>
+    		<!-- <value>com.allala.hibernate.entities.Person</value>
+    		<value>com.allala.hibernate.entities.Address</value>
+    		<value>com.allala.hibernate.entities.Degree</value>
+    		<value>com.allala.hibernate.entities.MiniPerson</value> -->
+    	</list>
+    </property>
+   
+    
+    <property name="hibernateProperties">
+    	<props>
+    	<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect </prop>
+    	<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+    	<!--<prop key="hibernate.current_session_context_class">thread</prop>  
+ 		<prop key="hibernate.enable_lazy_load_no_trans">true</prop>-->
+    	<prop key="hibernate.show_sql">true</prop>
+    	</props>
+    
+    </property>
+
+    </bean>
+    
+    <bean id="myCustom" class="com.allala.custom.function.MyCustomFuction">
+    <property name="dataSource" ref="datasource"/>
+    <property name="userName" value="Allala"/>
+    <property name="password" value="Allala-password"/>
+    <property name="emailid" value="allala@email.com"/>
+    </bean>
+    
+    
+    </beans>

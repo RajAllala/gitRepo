@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
+    <!-- bean definitions here -->
+
+	<bean id="newsDAOrProxy" class="com.allala.spring.ioc.dao.impl.NewsDAOimpl"/>
+	<bean id="GenericService123rProxy" class="com.allala.spring.ioc.service.impl.GenericServiceImpl">
+	<property name="newsDAO" ref="newsDAO"></property>
+	</bean>
+	
+	<!-- Interceptor Beans -->
+	<bean id="myMethodBeforeInterceptor" class="com.allala.spring.aop.interceptors.MethodBeforeInterceptors"/>
+	<bean id="myMethodAfterInterceptor" class="com.allala.spring.aop.interceptors.MethodAfterInterceptor"/>
+	<bean id="myMethodException" class="com.allala.spring.aop.interceptors.MethodException"/>
+		<bean id="myMethodAround" class="com.allala.spring.aop.interceptors.MyMethodAroundInterceptor"/>
+	
+	<!-- My Proxy beans -->
+	
+	<bean id="newsDAO" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="target" ref="newsDAOrProxy"/>
+	<property name="interceptorNames">
+	<list>
+	 <value>myMethodAround</value>
+	<!-- <value>myMethodAfterInterceptor</value>
+	
+	<value>myMethodException</value> -->
+	</list>
+	</property>
+	</bean>
+	
+	
+	<bean id="GenericService123" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="target" ref="GenericService123rProxy"/>
+	<property name="interceptorNames">
+	<list>
+	
+	<value>myMethodAround</value>
+	<!-- <value>myMethodAfterInterceptor</value>
+	
+	
+	
+		<value>myMethodException</value>-->
+	
+	</list>
+	</property>
+	</bean>
+
+
+
+
+</beans>

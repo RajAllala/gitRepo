@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.allala.hibernate.entities.News" table="NEWS">
+      <id name="id" type="long" column="id">
+         <generator class="identity"/>
+      </id>
+      <property name="headlines" column="HEADLINES" type="string"/>
+      <property name="maincontent" column="MAINCONTENT" type="string"/>
+      <property name="reporter" column="REPORTER" type="string"/>
+   </class>
+</hibernate-mapping>
